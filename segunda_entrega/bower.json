@@ -1,0 +1,13 @@
+{
+  "name": "prog-scripts-fatec",
+  "version": "1.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
