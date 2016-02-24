@@ -213,12 +213,26 @@ body {
   border-top: 1px solid #ccc;
 }
 
-.step.success .step-icon-wrapper {
-  background: #2980b9;
+.step-icon {
+  position: relative;
 }
 
-.step:hover .step-icon-wrapper {
-  background: #2980b9;
+.step-icon .left-line,
+.step-icon .right-line {
+  top: 50%;
+  z-index: 1;
+  width: 50%;
+  height: 2px;
+  position: absolute;
+  border: 2px solid #5eabde;
+}
+
+.step-icon .left-line {
+  left: 0;
+}
+
+.step-icon .right-line {
+  right: 0;
 }
 
 .step-icon-wrapper {
@@ -228,6 +242,7 @@ body {
 }
 
 .step-icon-wrapper i {
+  z-index: 2;
   color: #fff;
   font-weight: 100;
   font-style: normal;
@@ -307,6 +322,11 @@ footer p {
   .step {
     margin-bottom: 3em;
   }
+
+  .step-icon .left-line,
+  .step-icon .right-line {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -340,5 +360,9 @@ footer p {
 
   .sign-up .btn-signup {
     border-bottom-left-radius: 0;
+  }
+
+  .step {
+    padding: 0;
   }
 }
