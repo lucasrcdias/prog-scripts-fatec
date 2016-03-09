@@ -1,19 +1,19 @@
 var listenerObject = function () {
-  var obj = {
-    listeners: [],
-    count: 0
-  };
+  var obj       = { count: 0 };
+  var listeners = [];
+  var count     = 0;
 
   // adicionando listener
   obj.addListener = function (listener) {
-    this.listeners.push(listener);
+    listeners.push(listener);
   };
-
+  
   // executando listeners
   obj.execute = function execute() {
-    console.log("Executando: " + ++this.count);
-    for(listener in this.listeners) {
-      this.listeners[listener]();
+	var counterObject = { count: ++count };
+
+    for(listener in listeners) {
+      listeners[listener](counterObject);
     }
   }
 
@@ -21,12 +21,12 @@ var listenerObject = function () {
 };
 
 // exemplo de listeners
-var clickListener = function () {
-  console.log("clicked");
+var clickListener = function (obj) {
+  console.log("click listener, executed " + obj.count + " times.");
 };
 
-var whateverListener = function () {
-  console.log("whatever");
+var whateverListener = function (obj) {
+  console.log("whatever listener, executed " + obj.count + " times.");
 }
 
 // criação de um objeto que "escuta"
