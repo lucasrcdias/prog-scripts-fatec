@@ -1,0 +1,220 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700)
+@import 'vendor/normalize'
+
+$dark-color: #1976D2
+$primary-color: #2196F3
+$danger-color: #D32F2F
+$success-color: #388E3C
+$border-radius-base: 3px
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  font-size: 14px
+  font-family: 'Montserrat', sans-serif
+
+body
+  background: #f1f1f1
+
+.container
+  max-width: 400px
+  margin-left: auto
+  margin-right: auto
+
+  @media screen and (max-width: 767px)
+    padding: 0 15px
+
+main
+  margin-top: 30px
+  margin-bottom: 30px
+
+.page-header
+  padding: 5px 0
+  text-align: center
+  background: $dark-color
+
+  h1
+    color: #fff
+
+.box
+  background: #fff
+  overflow: hidden
+  margin-bottom: 30px
+  border-radius: $border-radius-base
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3)
+
+  &.subject-box
+    padding: 20px
+
+  .box-title
+    display: block
+    padding: 15px 0
+    text-align: center
+    background: #f8f8f8
+    border-bottom: 1px solid #f1f1f1
+
+.subject
+  display: none
+  overflow: hidden
+  padding: 20px 15px
+  border-bottom: 1px solid #f1f1f1
+
+  .subject-name
+    float: left
+    max-width: 80%
+    line-height: 30px
+
+  .btn-remove,
+  .btn-add
+    float: right
+
+.form-group
+  padding: 15px
+
+  &.has-error
+    .form-control
+      border-color: $danger-color
+
+    .error-message
+      display: block
+
+.form-label
+  display: block
+  margin-bottom: 10px
+
+.form-control
+  width: 100%
+  min-height: 40px
+  padding: 5px 10px
+  transition: .3s all ease
+  border-radius: $border-radius-base
+  border: 1px solid darken(#f1f1f1, 5%)
+
+  &:focus
+    outline: none
+    border-color: darken(#f1f1f1, 30%)
+
+.form-hint
+  display: block
+  margin-top: 5px
+  font-size: 12px
+
+  &.error-message
+    display: none
+    color: $danger-color
+
+.btn
+  color: #fff
+  padding: 10px 15px
+  transition: .3s all ease
+  border-radius: $border-radius-base
+  border: 1px solid darken(#f1f1f1, 10%)
+
+.btn-outline
+  background: #fff
+  border-width: 2px
+  color: $primary-color
+  border-color: $primary-color
+
+  &:hover
+    color: #fff
+    background: $primary-color
+
+.btn-block
+  width: 100%
+  display: block
+
+.btn-remove,
+.btn-add
+  padding: 0
+  width: 30px
+  height: 30px
+  color: #fff
+  border: none
+  border-radius: 50%
+
+.btn-danger,
+.btn-remove
+  background: $danger-color
+
+  &:hover
+    background: darken($danger-color, 10%)
+
+.btn-success,
+.btn-add
+  background: $success-color
+  border-color: darken($success-color, 5%)
+
+  &:hover
+    background: darken($success-color, 5%)
+
+.btn-add
+  margin-right: 10px
+
+.btn-subject
+  width: 100%
+  display: block
+  margin-bottom: 15px
+
+.notification
+  right: 20px
+  bottom: -100px
+  padding: 20px
+  position: fixed
+  transition: .3s all ease
+  border-radius: $border-radius-base
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.2)
+
+  &.success
+    background: $success-color
+
+  &.error
+    background: $danger-color
+
+  p
+    color: #fff
+
+.modal
+  display: none
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  position: absolute
+
+  .modal-close
+    top: 20px
+    right: 20px
+    width: 50px
+    height: 50px
+    z-index: 2
+    color: #fff
+    border: none
+    position: fixed
+    text-align: center
+    font-size: 28px
+    line-height: 50px
+    border-radius: 50%
+    background: $primary-color
+
+  .modal-backdrop
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+    position: fixed
+    background: rgba(0,0,0,.8)
+
+  .modal-content
+    z-index: 2
+    top: 50%
+    left: 50%
+    position: absolute
+    transform: translate(-50%, -50%)
+
+    .box
+      width: 300px

@@ -1,0 +1,28 @@
+header.page-header
+  h1 Matérias
+
+.notification
+  p
+
+main.container
+  section
+    button.btn.btn-success.btn-subject Adicionar matéria
+  
+  section
+    .box.list-box
+      h3.box-title Matérias cadastradas
+      
+      .subjects
+
+.modal
+  button.modal-close &times;
+  .modal-backdrop
+  .modal-content
+    .box.subject-box
+      form
+        .form-group
+          label.form-label for="subject" Nome da matéria
+          input.form-control.js-subject#subject name="subject" type="text" placeholder="Ex: Programação Linear"
+          span.form-hint.error-message Preencha esse campo
+        .form-group
+          button.btn.btn-outline.btn-block Salvar
