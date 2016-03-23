@@ -49,6 +49,12 @@ main
   &.subject-box
     padding: 20px
 
+    @media screen and (max-width: 767px)
+      width: 300px
+
+    @media screen and (min-width: 768px)
+      width: 500px
+
   .box-title
     display: block
     padding: 15px 0
@@ -216,6 +222,3 @@ main
     left: 50%
     position: absolute
     transform: translate(-50%, -50%)
-
-    .box
-      width: 300px
