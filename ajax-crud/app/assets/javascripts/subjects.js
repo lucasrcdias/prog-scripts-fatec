@@ -39,22 +39,19 @@ $(document).ready(function() {
       }
     }
 
-    subjects.splice(index, 1);
+    if (index) {
+      subjects.splice(index, 1);
+    }
   }
 
-  var removeHandler = function() {
-    var $subject = $("#" + $(this).data('remove'));
-    var id = $subject.attr('id').split('-')[1];
-
-    removeSubject(id);
-    console.log(subjects);
-
+  var removeHandler = function(element, id) {
     $.ajax({
       type: "DELETE",
       url: urls['destroy'].replace(':id', id),
       success: function() {
-        $subject.slideUp(function() {
+        element.slideUp(function() {
           this.remove();
+          removeSubject(id);
           showNotification('success', 'Removido com sucesso!');
         });
       }
@@ -81,16 +78,20 @@ $(document).ready(function() {
   }
 
   var appendSubject = function (subject) {
-    var subjectDiv = $("<div id='subject-" + subject.id + "' class='subject'></div>");
+    var subjectDiv = $("<div class='subject'></div>");
     var subjectName = $("<strong class='subject-name'>" + subject.name + "</strong>");
-    var removeButton = $("<button class='btn btn-remove' data-remove='subject-" + subject.id + "'>&times;</button>");
-
-    removeButton.click(removeHandler);
+    var removeButton = $("<button class='btn btn-remove'>&times;</button>");
 
     subjects.push(subject);
     $('.subjects').append(subjectDiv);
+    subjectDiv.append(subjectName).append(removeButton);
+
+    removeButton.click(function(){
+      removeHandler(subjectDiv, subject.id);
+    });
+
     $modal.fadeOut();
-    subjectDiv.append(subjectName).append(removeButton).fadeIn();
+    subjectDiv.fadeIn();
   }
 
   var createSubject = function() {
@@ -108,8 +109,6 @@ $(document).ready(function() {
         showNotification('success', 'Inserido com sucesso');
       }
     });
-
-
   }
 
   $form.submit(function(event) {
@@ -123,6 +122,7 @@ $(document).ready(function() {
 
   $addSubjectBtn.click(function() {
     $modal.fadeToggle();
+    $subjectField.focus();
   });
 
   $closeModalBtn.click(function() {
