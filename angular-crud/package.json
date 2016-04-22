@@ -1,14 +1,14 @@
 {
-  "name": "controle-pontos-app",
+  "name": "prog-scripts-fatec",
   "version": "1.0.0",
-  "description": "Hibrid mobile application layout",
+  "description": "Prog scripts class",
   "main": "index.js",
   "scripts": {
     "test": "\"Testing...\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucasrcdias/controle-pontos-app.git"
+    "url": "git+https://github.com/lucasrcdias/prog-scripts-fatec.git"
   },
   "keywords": [
     "js",
@@ -17,11 +17,11 @@
     "pug"
   ],
   "author": "Lucas Ramos",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lucasrcdias/controle-pontos-app/issues"
+    "url": "https://github.com/lucasrcdias/prog-scripts-fatec/issues"
   },
-  "homepage": "https://github.com/lucasrcdias/controle-pontos-app#readme",
+  "homepage": "https://github.com/lucasrcdias/prog-scripts-fatec#readme",
   "devDependencies": {
     "autoprefixer-stylus": "^0.9.2",
     "browser-sync": "^2.12.3",
