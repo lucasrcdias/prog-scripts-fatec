@@ -1,0 +1,41 @@
+doctype html
+html(lang="pt-br", ng-app="subjectApp")
+  head
+    title Controle de notas
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description' content="meta desc")
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", type="text/css", href="css/main.css")
+
+  body(ng-controller="subjectsCtrl")
+    header.page-header
+      h1 Matérias
+
+    .notification(ng-class="notification.cssClass")
+      p {{ notification.message }}
+
+    main.container
+      section
+        .box.list-box
+          h3.box-title Matérias cadastradas
+
+          .subjects
+            .subject(ng-repeat="subject in subjects")
+              strong.subject-name {{ subject.name }}
+              button.btn.btn-remove(title="remover matéria", ng-click="removeSubject(subject)") &times;
+              button.btn.btn-edit(title="remover matéria", ng-click="editSubject(subject)") editar
+
+      section
+        form.box(name="subjectForm", ng-submit="saveSubject(subject)")
+          .form-group(ng-class="{ 'has-error': subjectForm.name.$invalid && subjectForm.name.$dirty }")
+            label.form-label(for="subject") Nome da matéria
+            input.form-control.js-subject#subject(name="name", ng-model="subject.name", ng-required="true", ng-minlength="3", type="text", placeholder="Ex: Programação Linear")
+            span.form-hint.error-message(ng-show="subjectForm.name.$error.required") Preencha esse campo
+            span.form-hint.error-message(ng-show="subjectForm.name.$error.minlength") A matéria deve ter no mínimo 3 caracteres
+          .form-group
+            button.btn.btn-outline.btn-block(ng-disabled="subjectForm.$invalid") Salvar
+
+    script(src="js/assets/bower/angular/angular.min.js")
+    script(src="js/subject-control.js")
