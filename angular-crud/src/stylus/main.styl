@@ -82,11 +82,11 @@ main
   padding: 5px 10px
   transition: .3s all ease
   border-radius: $border-radius-base
-  border: 1px solid saturation(#f1f1f1, 5%)
+  border: 1px solid #ccc
 
   &:focus
     outline: none
-    border-color: saturation(#f1f1f1, 30%)
+    border-color: $primary-color
 
 .form-hint
   display: block
@@ -178,3 +178,18 @@ main
 
   p
     color: #fff
+
+.empty,
+.loading
+  height: 150px
+  text-align: center
+  position: relative
+
+  span
+    top: 50%
+    left: 50%
+    width: 100%
+    font-size: 22px
+    font-weight: 600
+    position: absolute
+    transform: translate(-50%, -50%)

@@ -20,8 +20,13 @@ html(lang="pt-br", ng-app="subjectApp")
       section
         .box.list-box
           h3.box-title Matérias cadastradas
+          .loading(ng-show="isLoading")
+            span Carregando matérias...
 
           .subjects
+            .empty(ng-show="!subjects.length && !isLoading")
+              span Nenhuma matéria encontrada!
+
             .subject(ng-repeat="subject in subjects")
               strong.subject-name {{ subject.name }}
               button.btn.btn-remove(title="remover matéria", ng-click="removeSubject(subject)") &times;

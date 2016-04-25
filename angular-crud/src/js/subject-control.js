@@ -13,6 +13,7 @@ app.controller("subjectsCtrl", ['$scope', '$http', '$timeout', function($scope, 
   };
   $scope.formAction       = "post";
   $scope.showNotification = false;
+  $scope.isLoading        = true;
   $scope.subjects         = [];
 
   $scope.saveSubject = function(subject) {
@@ -33,6 +34,7 @@ app.controller("subjectsCtrl", ['$scope', '$http', '$timeout', function($scope, 
   $scope.removeSubject = function(subject) {
     $http.delete("http://localhost:8000/subjects/" + subject.id + ".json").then(function() {
       loadSubjects();
+      $scope.subjectForm.$setPristine();
       showNotification("Removido com sucesso!", "success");
     });
   }
@@ -43,8 +45,11 @@ app.controller("subjectsCtrl", ['$scope', '$http', '$timeout', function($scope, 
   }
 
   var loadSubjects = function() {
+    $scope.isLoading = true;
+
     $http.get("http://localhost:8000/subjects.json").then(function(response) {
       $scope.subjects = response.data;
+      $scope.isLoading = false;
     });
   }
 
