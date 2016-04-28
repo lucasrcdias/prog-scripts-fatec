@@ -23,14 +23,15 @@ html(lang="pt-br", ng-app="subjectApp")
           .loading(ng-show="isLoading")
             span Carregando matérias...
 
-          .subjects
-            .empty(ng-show="!subjects.length && !isLoading")
-              span Nenhuma matéria encontrada!
+          .empty(ng-show="!subjects.length && !isLoading")
+            span Nenhuma matéria encontrada!
 
+          .subjects(ng-show="subjects.length")
             .subject(ng-repeat="subject in subjects")
-              strong.subject-name {{ subject.name }}
-              button.btn.btn-remove(title="remover matéria", ng-click="removeSubject(subject)") &times;
-              button.btn.btn-edit(title="remover matéria", ng-click="editSubject(subject)") editar
+              .details
+                strong.subject-name {{ subject.name }}
+                button.btn.btn-remove(title="remover matéria", ng-click="removeSubject(subject)") &times;
+                button.btn.btn-edit(title="remover matéria", ng-click="editSubject(subject)") editar
 
       section
         form.box(name="subjectForm", ng-submit="saveSubject(subject)")
@@ -39,8 +40,8 @@ html(lang="pt-br", ng-app="subjectApp")
             input.form-control.js-subject#subject(name="name", ng-model="subject.name", ng-required="true", ng-minlength="3", type="text", placeholder="Ex: Programação Linear")
             span.form-hint.error-message(ng-show="subjectForm.name.$error.required") Preencha esse campo
             span.form-hint.error-message(ng-show="subjectForm.name.$error.minlength") A matéria deve ter no mínimo 3 caracteres
+
           .form-group
             button.btn.btn-outline.btn-block(ng-disabled="subjectForm.$invalid") Salvar
 
-    script(src="js/assets/bower/angular/angular.min.js")
-    script(src="js/subject-control.js")
+    script(src="js/main.js")

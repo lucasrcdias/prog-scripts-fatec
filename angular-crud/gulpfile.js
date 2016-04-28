@@ -58,6 +58,7 @@ gulp.task('js', function() {
   return gulp.src([srcPaths.vendorJs, srcPaths.js])
     .pipe(plumber())
     .pipe(uglify())
+    .pipe(concat('main.js'))
     .pipe(gulp.dest(buildPaths.js))
     .pipe(browserSync.stream());
 });

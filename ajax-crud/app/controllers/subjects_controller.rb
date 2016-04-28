@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.all.order(:created_at)
 
     respond_to do |format|
       format.json { render json: @subjects, status: :ok }
