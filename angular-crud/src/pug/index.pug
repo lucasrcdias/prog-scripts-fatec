@@ -10,9 +10,6 @@ html(lang="pt-br", ng-app="subjectApp")
     link(rel="stylesheet", type="text/css", href="css/main.css")
 
   body(ng-controller="subjectsCtrl")
-    header.page-header
-      h1 Matérias
-
     .notification(ng-class="notification.cssClass")
       p {{ notification.message }}
 
